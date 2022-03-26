@@ -1,7 +1,13 @@
 import Header from "./header/header"
-import Footer from "./footer/footer"
-
+import Layout1 from "./layout/layout1"
+import Layout2 from "./layout/layout2"
+import VideoCard from "./video-card/video-card"
+import { DropDownMenu, DropDownItem } from "./dropdown/dropdown"
 export {
     Header,
-    Footer
+    Layout1,
+    Layout2,
+    VideoCard,
+    DropDownMenu,
+    DropDownItem
 }

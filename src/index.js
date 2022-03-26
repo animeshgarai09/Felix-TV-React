@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import './global/css/global.scss'
 import 'react-felix-ui/dist/cjs/index.css'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import { makeServer } from "./server";
 
 // Call make Server
