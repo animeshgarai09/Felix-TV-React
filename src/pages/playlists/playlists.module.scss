@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    min-height: var(--min-height);
+    .pane {
+        width: 23rem;
+        background-color: #1c1c1c;
+        position: sticky;
+        top: 58px;
+        height: var(--min-height);
+        position: sticky;
+        top: 58px;
+        .pane_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: #161616;
+        }
+        .pane_body {
+            display: flex;
+            flex-direction: column;
+        }
+        .playlist_card {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #2a2a2a;
+            transition: 0.3s;
+            cursor: pointer;
+            &:hover {
+                background: #1e1e1e;
+            }
+            .block {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                flex: 1 1;
+            }
+            .name {
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: var(--clr-accent);
+            }
+            .info {
+                font-size: 0.7rem;
+                color: #8a8a8a;
+                span {
+                    margin-right: 0.5rem;
+                    display: inline-flex;
+                    align-items: center;
+                    svg {
+                        margin-right: 0.2rem;
+                    }
+                }
+            }
+        }
+    }
+    .main {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        flex: 1 1;
+        padding: 1.5rem 2.5rem;
+    }
+}
