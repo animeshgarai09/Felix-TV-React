@@ -26,10 +26,35 @@ html,
 body {
     line-height: 1.5em;
     scroll-behavior: smooth;
+    background: var(--clr-page-bg);
 }
 
 *,
 *::before,
 *::after {
     font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+input {
+    color: var(--clr-white);
+}
+.dark-theme {
+    // --clr-text-color: var(--clr-white);
+    // --clr-page-bg: #222222;
+    // --clr-page-light-bg: #2a2a2a;
+    // --clr-page-dark-bg: #1e1e1e;
+    // --clr-card-bg: var(--clr-page-dark-bg);
+    // --clr-border-color-3: #303030;
+    // --clr-primary-light: #2f2f2f;
+    // --clr-input-bg: #333333;
+    // --clr-border-color-2: var(--clr-primary);
+    // --clr-card-name: var(--clr-white);
+    // --box-shadow-1: rgb(0 0 0 / 35%) 0px 5px 15px;
+}
+
+.slick-disabled {
+    display: none !important;
+}
+
+.slick-track {
+    padding: 1rem 0;
 }
