@@ -6,12 +6,12 @@ import { BsThreeDotsVertical, FiClock, BiListPlus, RiShareForwardLine } from "@i
 import { DropDownMenu, DropDownItem } from "../dropdown/dropdown.js"
 import { useState } from "react"
 
-const VideoCard = () => {
+const VideoCard = ({ orientation }) => {
 
     const [drop, setDrop] = useState(false)
 
     return (
-        <div className={`${styles.container} ${styles.vertical}`}>
+        <div className={`${styles.container} ${orientation ? styles.horizontal : styles.vertical}`}>
             <div className={styles.image}>
                 <Image src={thumbnail} alt="thumbnail" />
             </div>

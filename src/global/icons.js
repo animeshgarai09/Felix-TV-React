@@ -4,7 +4,7 @@ import { BsThreeDotsVertical } from "react-icons/bs"
 import { RiPlayList2Fill, RiHistoryFill, RiShareForwardLine } from "react-icons/ri"
 import { IoLogoLinkedin, IoIosCall, IoMdPricetag } from 'react-icons/io'
 import { HiMail, HiOutlineThumbUp } from 'react-icons/hi'
-import { FiClock } from 'react-icons/fi'
+import { FiClock, FiPlayCircle } from 'react-icons/fi'
 import { MdAdd, MdPowerSettingsNew, MdOutlineNotificationsNone, MdOutlineExplore } from 'react-icons/md'
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa'
 import { TiThumbsUp } from 'react-icons/ti'
@@ -22,6 +22,7 @@ export {
     FaChevronRight,
     FaChevronLeft,
     FiClock,
+    FiPlayCircle,
     MdAdd,
     MdPowerSettingsNew,
     MdOutlineNotificationsNone,
