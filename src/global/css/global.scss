@@ -48,3 +48,36 @@ input {
 .slick-track {
     padding: 1rem 0;
 }
+
+.toast-container {
+    top: 4rem !important;
+}
+
+@-webkit-keyframes placeholderSkeleton {
+}
+
+@mixin animate($animation, $duration, $method, $times) {
+    // animation: $animation $duration $method $times;
+    -webkit-animation-duration: $duration !important;
+    -webkit-animation-timing-function: $method;
+    -webkit-animation-name: $animation !important;
+}
+
+@mixin keyframes($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+}
+.loader {
+    background-image: -webkit-linear-gradient(left, #494949, #393939 20%, #494949 40%, #494949) !important;
+    @include keyframes(placeholderSkeleton) {
+        0% {
+            background-position: -468px 0;
+        }
+        100% {
+            background-position: 468px 0;
+        }
+    }
+    @include animate(placeholderSkeleton, 2s, linear, 1);
+    // -webkit-animation-name: placeholderSkeleton !important;
+}

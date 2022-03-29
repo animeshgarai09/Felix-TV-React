@@ -8,12 +8,21 @@
     position: sticky;
     top: 0;
     z-index: 999;
+    ul {
+        align-items: center;
+    }
 }
 .nav_link {
     margin-left: 1rem;
     .icon {
         color: var(--clr-white);
         font-size: 1.6rem;
+    }
+    .avatar {
+        cursor: pointer;
+    }
+    .logout {
+        color: var(--clr-red);
     }
 }
 
@@ -44,6 +53,9 @@
 .dropdown {
     top: 4.2rem !important;
     right: 0.8rem !important;
+    svg {
+        font-size: 1rem;
+    }
 }
 .logo {
     width: 1.77rem;
