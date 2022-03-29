@@ -11,11 +11,11 @@ const Playlists = () => {
             </SidePane> */}
             <PlaylistPane />
             <div className={styles.main}>
+                {/* <VideoCard orientation="horizontal" />
                 <VideoCard orientation="horizontal" />
                 <VideoCard orientation="horizontal" />
                 <VideoCard orientation="horizontal" />
-                <VideoCard orientation="horizontal" />
-                <VideoCard orientation="horizontal" />
+                <VideoCard orientation="horizontal" /> */}
             </div>
         </div>
     )
