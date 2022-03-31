@@ -8,11 +8,11 @@ const History = () => {
                 <Button variant="ghost" isRound={true}>Clear History</Button>
             </SidePane>
             <div className={styles.main}>
+                {/* <VideoCard orientation="horizontal" />
                 <VideoCard orientation="horizontal" />
                 <VideoCard orientation="horizontal" />
                 <VideoCard orientation="horizontal" />
-                <VideoCard orientation="horizontal" />
-                <VideoCard orientation="horizontal" />
+                <VideoCard orientation="horizontal" /> */}
             </div>
         </div>
     )

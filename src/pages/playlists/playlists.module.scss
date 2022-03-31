@@ -13,7 +13,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem;
+            padding: 1rem 1.5rem;
             background: #161616;
         }
         .pane_body {
@@ -23,7 +23,7 @@
         .playlist_card {
             display: flex;
             align-items: center;
-            padding: 0.8rem 1rem;
+            padding: 0.8rem 1.5rem;
             border-bottom: 1px solid #2a2a2a;
             transition: 0.3s;
             cursor: pointer;

@@ -6,11 +6,11 @@ const WatchLater = () => {
         <div className={styles.container}>
             <SidePane title="Watch Later..." time="30 Minutes" count={30} />
             <div className={styles.main}>
+                {/* <VideoCard orientation="horizontal" />
                 <VideoCard orientation="horizontal" />
                 <VideoCard orientation="horizontal" />
                 <VideoCard orientation="horizontal" />
-                <VideoCard orientation="horizontal" />
-                <VideoCard orientation="horizontal" />
+                <VideoCard orientation="horizontal" /> */}
             </div>
         </div>
     )
