@@ -3,7 +3,8 @@ import { VideoCard } from "@components"
 import Slider from "react-slick";
 import { useVideos } from "@providers/video-provider";
 const Explore = () => {
-    const { videos } = useVideos()
+    const { VideoState: { videos } } = useVideos()
+
     const settings = {
         swipeToSlide: true,
         infinite: false,
@@ -22,7 +23,7 @@ const Explore = () => {
                             ? videos.map((item, i) => {
                                 return <VideoCard
                                     key={i}
-                                    {...item}
+                                    videoItem={item}
                                 />
                             })
                             : [...Array(7)].map((_, i) => {

@@ -3,7 +3,7 @@ import { AuthReducer } from "../reducers/auth-reducer"
 import axios from "axios"
 import { useToast } from "react-felix-ui"
 import { useNavigate } from "react-router-dom"
-
+import { useWatchLater } from "./watch-later-provider"
 const AuthContext = createContext()
 
 const initialState = {
@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
     const [UserState, AuthDispatcher] = useReducer(AuthReducer, initialState)
     const toast = useToast()
     const navigate = useNavigate()
+    const { setWatchLaterState } = useWatchLater()
 
     const handleSignIn = (email, password, redirect, setState) => {
         axios.post("/api/auth/login", {
@@ -91,6 +92,7 @@ const AuthProvider = ({ children }) => {
                 encodedToken: token
             }
         })
+        setWatchLaterState(user.watchlater)
     }
 
     useEffect(() => {

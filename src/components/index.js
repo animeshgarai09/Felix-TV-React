@@ -4,6 +4,7 @@ import Layout2 from "./layout/layout2"
 import VideoCard from "./video-card/video-card"
 import { DropDownMenu, DropDownItem } from "./dropdown/dropdown"
 import SidePane from "./side-pane/side-pane"
+import VideoEmbed from "./video-embed/video-embed"
 export {
     Header,
     Layout1,
@@ -11,5 +12,6 @@ export {
     VideoCard,
     DropDownMenu,
     DropDownItem,
-    SidePane
+    SidePane,
+    VideoEmbed
 }

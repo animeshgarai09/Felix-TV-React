@@ -4,7 +4,7 @@ import {
     RiPlayList2Fill,
     MdOutlineExplore,
     RiHistoryFill,
-    FiClock,
+    AiOutlineClockCircle,
     HiOutlineThumbUp,
     AiFillGithub,
     AiFillTwitterCircle,
@@ -24,7 +24,7 @@ const SideNav = () => {
                     <NavLink className={(navigationData) => navigationData.isActive ? styles.active : null} to="/playlists"><IconButton icon={<RiPlayList2Fill />} className={styles.icon} /></NavLink>
                 </ListItem>
                 <ListItem className={styles.nav_link}>
-                    <NavLink className={(navigationData) => navigationData.isActive ? styles.active : null} to="/watch-later"><IconButton icon={<FiClock />} className={styles.icon} /></NavLink>
+                    <NavLink className={(navigationData) => navigationData.isActive ? styles.active : null} to="/watch-later"><IconButton icon={<AiOutlineClockCircle />} className={styles.icon} /></NavLink>
                 </ListItem>
                 <ListItem className={styles.nav_link}>
                     <NavLink className={(navigationData) => navigationData.isActive ? styles.active : null} to="/liked-videos"><IconButton icon={<HiOutlineThumbUp />} className={styles.icon} /></NavLink>

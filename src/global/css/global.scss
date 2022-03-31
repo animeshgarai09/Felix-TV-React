@@ -53,9 +53,6 @@ input {
     top: 4rem !important;
 }
 
-@-webkit-keyframes placeholderSkeleton {
-}
-
 @mixin animate($animation, $duration, $method, $times) {
     // animation: $animation $duration $method $times;
     -webkit-animation-duration: $duration !important;

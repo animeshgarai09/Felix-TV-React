@@ -1,0 +1,86 @@
+.container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2rem 3rem;
+}
+.video_con {
+    grid-column: span 3;
+    h1 {
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin: 1rem 0;
+    }
+}
+.sub_con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    .info {
+        display: flex;
+        align-items: center;
+        .avatar {
+            margin-left: 0;
+        }
+        span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--clr-gray-2);
+            &:not(:last-child) {
+                display: inline-flex;
+                align-items: center;
+                &::after {
+                    content: "";
+                    display: block;
+                    height: 5px;
+                    width: 5px;
+                    border-radius: 50%;
+                    background-color: var(--clr-gray-3);
+                    margin: 0 0.5rem;
+                }
+            }
+        }
+    }
+    .actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .action {
+            all: unset;
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--clr-gray-4);
+            transition: 0.2s;
+            &.active svg {
+                fill: var(--clr-primary);
+            }
+            &:hover {
+                color: var(--clr-white);
+            }
+            svg {
+                margin-right: 0.3rem;
+                font-size: 1.5rem;
+            }
+            &:nth-of-type(2) svg {
+                font-size: 2rem;
+            }
+            &:nth-of-type(3) svg {
+                font-size: 1.4rem;
+            }
+        }
+    }
+}
+
+.details {
+    border-top: 1px solid var(--clr-gray-1);
+    padding: 2rem 0;
+    p {
+        font-size: 0.9rem;
+        color: var(--clr-gray-5);
+    }
+}

@@ -4,9 +4,11 @@
     position: sticky;
     top: 58px;
     padding: 3rem 2rem;
-    height: var(--min-height);
+    min-height: var(--min-height);
+    max-height: var(--min-height);
     position: sticky;
     top: 58px;
+    overflow: hidden;
     h1 {
         font-size: 4rem;
         display: block;

@@ -1,6 +1,6 @@
 import styles from "./side-pane.module.scss"
 import { ReactComponent as Forest } from "@assets/svg/forest.svg"
-import { FiClock, FiPlayCircle } from "@icons"
+import { AiOutlineClockCircle, FiPlayCircle } from "@icons"
 const SidePane = ({ title, time, count, children }) => {
     return (
         <div className={styles.container}>
@@ -8,7 +8,7 @@ const SidePane = ({ title, time, count, children }) => {
 
             <div className={styles.details}>
                 {time && <div className={styles.pill}>
-                    <FiClock />{time}
+                    <AiOutlineClockCircle />{time}
                 </div>}
                 {count && <div className={styles.pill}>
                     <FiPlayCircle /> {count} Videos
