@@ -1,0 +1,50 @@
+.container {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    background: var(--clr-page-dark-bg);
+    iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+}
+@mixin animate($animation, $duration, $method, $times) {
+    animation: $animation $duration $method $times;
+    -webkit-animation: $animation $duration $method $times !important;
+}
+
+@mixin keyframes($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    color: #363636;
+    height: 50px;
+    width: 50px;
+    fill: var(--clr-primary);
+}
+
+// Animation Spin
+.animationSpin {
+    @include keyframes(spin) {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+        }
+    }
+    @include animate(spin, 2s, infinite, linear);
+}

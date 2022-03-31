@@ -1,5 +1,5 @@
 import styles from "../playlists.module.scss"
-import { FiClock, FiPlayCircle, FaChevronRight } from "@icons"
+import { AiOutlineClockCircle, FiPlayCircle, FaChevronRight } from "@icons"
 
 
 const PlaylistCard = () => {
@@ -8,7 +8,7 @@ const PlaylistCard = () => {
             <div className={styles.block}>
                 <span className={styles.name}>My Songs</span>
                 <span className={styles.info}>
-                    <span><FiClock /> 10 Hours</span>
+                    <span><AiOutlineClockCircle /> 10 Hours</span>
                     <span><FiPlayCircle /> 10 Videos</span>
                 </span>
             </div>

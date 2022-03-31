@@ -1,22 +1,29 @@
 import styles from "./video-card.module.scss"
 import { Image, Avatar, IconButton } from "react-felix-ui"
-import { BsThreeDotsVertical, FiClock, BiListPlus, RiShareForwardLine } from "@icons"
+import { BsThreeDotsVertical, AiOutlineClockCircle, BiListPlus, RiShareForwardLine, MdDeleteOutline } from "@icons"
 import { DropDownMenu, DropDownItem } from "../dropdown/dropdown.js"
 import { useState } from "react"
-
+import { useWatchLater } from "@providers/watch-later-provider"
+import { Link } from "react-router-dom"
 const VideoCard = ({
     isLoading,
     orientation,
-    title,
-    creator,
-    icon,
-    thumbnail,
-    views,
-    uploadedOn,
+    isRemoveWatchLater = false,
+    videoItem
 }) => {
 
-    const [drop, setDrop] = useState(false)
+    const {
+        _id,
+        title,
+        creator,
+        icon,
+        thumbnail,
+        views,
+        uploadedOn,
+    } = videoItem ? videoItem : {}
 
+    const [drop, setDrop] = useState(false)
+    const { addToWatchLater, removeFromWatchLater } = useWatchLater()
     return (
         <div className={`${styles.container} ${orientation ? styles.horizontal : styles.vertical}`}>
             {isLoading ?
@@ -34,7 +41,7 @@ const VideoCard = ({
 
                 : <>
                     <div className={styles.image}>
-                        <Image src={require(`@assets/images/thumbnails/${thumbnail}`)} alt="thumbnail" />
+                        <Link className={styles.name} to={`/watch/${_id}`}><Image src={require(`@assets/images/thumbnails/${thumbnail}`)} alt="thumbnail" /></Link>
                     </div>
                     <div className={styles.content_wrap}>
                         <Avatar src={require(`@assets/images/icons/${icon}`)} size="md" className={styles.avatar} />
@@ -44,14 +51,18 @@ const VideoCard = ({
                             <IconButton onClick={() => setDrop((prev) => !prev)} icon={<BsThreeDotsVertical />} className={styles.icon} />
                         </div>
 
-                        <a className={styles.name} href="#">{title}</a>
+                        <Link className={styles.name} to={`/watch/${_id}`}>{title}</Link>
 
                         <div className={styles.info}>
                             <span className={styles.views}>{views} views</span>
                             <span className={styles.time}> {uploadedOn}</span>
                         </div>
                         {drop && <DropDownMenu className={styles.dropdown} onClickClose={() => setDrop(false)}>
-                            <DropDownItem><FiClock /> Save to Watch later</DropDownItem>
+                            {
+                                isRemoveWatchLater
+                                    ? < DropDownItem onClick={() => removeFromWatchLater(videoItem._id)}><MdDeleteOutline /> Remove from Watch later</DropDownItem>
+                                    : < DropDownItem onClick={() => addToWatchLater(videoItem)}><AiOutlineClockCircle /> Save to Watch later</DropDownItem>
+                            }
                             <DropDownItem><BiListPlus /> Save to playlist</DropDownItem>
                             <DropDownItem><RiShareForwardLine /> Share</DropDownItem>
                         </DropDownMenu>

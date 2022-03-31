@@ -19,7 +19,7 @@ const Authentication = () => {
     }, [pathname])
 
     useEffect(() => {
-        console.log(signUpRef, signInRef)
+
         if (pathname === "/signup") {
             signUpRef?.current?.focus()
         } else {

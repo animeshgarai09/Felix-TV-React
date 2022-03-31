@@ -1,5 +1,3 @@
-import { v4 as uuid } from "uuid";
-
 /**
  * Videos Database can be added here.
  * You can add videos of your wish with different attributes
@@ -7,31 +5,31 @@ import { v4 as uuid } from "uuid";
 
 export const videos = [
     {
-        _id: uuid(),
+        _id: "7ank0q-ebt6xb-oaz4dey1",
         title: "Agricultural Engineering: Innovative Technologies | Masters of Engineering",
         description: "Enhancement in agriculture is key to produce enough food for the world’s population. From Ancient Egypt to today, this one-off will tackle the diverse techniques, know-how and technologies to that purpose.",
         creator: "DW Documentary",
         icon: "dw.jpeg",
         thumbnail: "-jS496h3vcw-MQ.jpg",
-        url: "https://www.youtube.com/watch?v=-jS496h3vcw",
+        embedId: "-jS496h3vcw",
         views: "50k",
         uploadedOn: "5 Months ago",
         category: "Documentary",
     },
     {
-        _id: uuid(),
+        _id: 'jsw6if-aoeos8-ucu5g0io',
         title: "Drones, robots, and super sperm – the future of farming | DW Documentary",
         description: `The future of farming: Driverless tractors, drones and robots. How is the agriculture industry changing as digital technology develops? Unmanned tractors controlled via GPS; drones that kill vermin in the fields from above; and highly efficient bull sperm used to produce genetically optimized calves.This is not science fiction.It’s the future of farming, today. "Smart farming" is the agricultural industry's new buzzword. A survey of almost 600 German farmers has revealed that more than one in two now uses digital solutions to optimize their harvests. Fierce regional and global competition, declining subsidies, higher standards of food quality, environmental protection, and increasing demand are forcing farmers to be highly efficient. This documentary looks at three examples of "smart farming" in Germany. Breeding consultant Johanna Schendel creates optimized dairy cows by selecting the right bull semen. Asparagus farmer Heiner Bartels uses a smartphone to calculate the optimum time to harvest. And drone pilot Bernd Meyer is out to fight pests in maize fields from the air. All three are trying to use modern technology to modify nature to fit the needs of our society. But where are the limits?`,
         creator: "DW Documentary",
         icon: "dw.jpeg",
         thumbnail: "qwNVNE83Udo-MQ.jpg",
-        url: "https://www.youtube.com/watch?v=qwNVNE83Udo",
+        embedId: "qwNVNE83Udo",
         views: "50k",
         uploadedOn: "5 Months ago",
         category: "Documentary",
     },
     {
-        _id: uuid(),
+        _id: 'pco33t-504oju-8j3wud3h',
         title: "When food becomes scarce – high-tech farms of the future | DW Documentary",
         description: `Agriculture will have to change drastically in the future if it is to meet global demand. Food production will become increasingly difficult in the face of growing challenges like rapid population growth, climate change and soil exhaustion.
         
@@ -42,13 +40,13 @@ export const videos = [
         creator: "DW Documentary",
         icon: "dw.jpeg",
         thumbnail: "KIEOuKD9KX8-MQ.jpg",
-        url: "https://www.youtube.com/watch?v=KIEOuKD9KX8",
+        embedId: "KIEOuKD9KX8",
         views: "50k",
         uploadedOn: "5 Months ago",
         category: "Documentary",
     },
     {
-        _id: uuid(),
+        _id: '3wyr21-9jecfm-shwc3khn',
         title: "Vertical farms could take over the world | Hard Reset by Freethink",
         description: `Vertical farming is a type of indoor farming where crops are grown in stacked layers, rather than spread out across large plots of land. These farms offer many benefits over traditional ones, including the prospect of better access to healthy foods in underserved communities. 
 
@@ -60,13 +58,13 @@ export const videos = [
         creator: "Freethink",
         icon: "freethink.jpeg",
         thumbnail: "J4SaSfnHK3I-MQ.jpg",
-        url: "https://www.youtube.com/watch?v=J4SaSfnHK3I",
+        embedId: "J4SaSfnHK3I",
         views: "50k",
         uploadedOn: "10 days ago",
         category: "Documentary",
     },
     {
-        _id: uuid(),
+        _id: '92n6tm-dd613p-o2xyz6m2',
         title: "The Futuristic Farms That Will Feed the World | Freethink | Future of Food",
         description: `Amidst climate change, a growing population, and people consuming more of less sustainable food, how will we feed our future world? The answer may not be increasing resources--land, water, and employees--but rather improving production efficiency to create more sustainable farming of crops. The key question: How do we increase the amount of food we produce while using the same or fewer resources? 
 
@@ -88,13 +86,13 @@ export const videos = [
         creator: "Freethink",
         icon: "freethink.jpeg",
         thumbnail: "KfB2sx9uCkI-MQ.jpg",
-        url: "https://www.youtube.com/watch?v=KfB2sx9uCkI",
+        embedId: "KfB2sx9uCkI",
         views: "50k",
         uploadedOn: "1 year ago",
         category: "Documentary",
     },
     {
-        _id: uuid(),
+        _id: 'xpmy12-k8fqxp-lwaph1qj',
         title: "Future of Food: Farming in the age of climate change",
         description: `Unpredictable weather patterns are forcing farmers to adopt new methods to maintain a viable business while making food production as efficient as possible.
 
@@ -104,7 +102,7 @@ export const videos = [
         creator: "Quartz",
         icon: "quartz.jpeg",
         thumbnail: "Tjr6z1GMDqc-MQ.jpg",
-        url: "https://www.youtube.com/watch?v=qwNVNE83Udo",
+        embedId: "qwNVNE83Udo",
         views: "50k",
         uploadedOn: "5 Months ago",
         category: "Documentary",

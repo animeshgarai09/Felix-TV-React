@@ -7,7 +7,8 @@ import {
     Playlists,
     WatchLater,
     History,
-    Authentication
+    Authentication,
+    Watch
 } from './pages'
 import { Layout1, Layout2 } from "./components"
 
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/playlists" element={<Playlists />}></Route>
                 <Route path="/watch-later" element={<WatchLater />}></Route>
                 <Route path="/history" element={<History />}></Route>
+                <Route path="/watch/:id" element={<Watch />}></Route>
             </Route>
             <Route element={<Layout2 />}>
                 <Route path="/" element={<Home />}></Route>

@@ -14,6 +14,7 @@ const VideoProvider = ({ children }) => {
         "/api/videos",
         "/api/categories",
     ];
+
     useEffect(() => {
         Promise.all(endpoints.map((endpoint) => axios.get(endpoint))).then(
             axios.spread((...allData) => {
@@ -29,8 +30,20 @@ const VideoProvider = ({ children }) => {
             })
         );
     }, [])
+
+    const getVideo = async (id, setVideo) => {
+        try {
+            const response = await axios.get(`/api/video/${id}`)
+            if (response.status === 200) {
+                setVideo(response.data.video)
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     return (
-        <VideoContext.Provider value={VideoState}>
+        <VideoContext.Provider value={{ VideoState, getVideo }}>
             {children}
         </VideoContext.Provider>
     )
