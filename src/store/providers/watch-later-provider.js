@@ -36,7 +36,7 @@ const WatchLaterProvider = ({ children }) => {
                     message: "Sign in to your account first",
                     duration: 2
                 })
-                navigate('/signin', { state: { from: location } }, { replace: true })
+                navigate('/signin', { state: { from: location }, replace: true })
             })
         } else {
             toast({
@@ -66,7 +66,7 @@ const WatchLaterProvider = ({ children }) => {
                 message: "Sign in to your account first",
                 duration: 2
             })
-            navigate('/signin', { state: { from: location } })
+            navigate('/signin', { state: { from: location }, replace: true })
         })
     }
     const checkInWatchLater = (id) => {

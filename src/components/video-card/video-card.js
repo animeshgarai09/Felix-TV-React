@@ -9,6 +9,7 @@ const VideoCard = ({
     isLoading,
     orientation,
     isRemoveWatchLater = false,
+    onRemove,
     videoItem
 }) => {
 
@@ -48,7 +49,10 @@ const VideoCard = ({
 
                         <div className={styles.con}>
                             <a className={styles.channel} href="#">{creator}</a>
-                            <IconButton onClick={() => setDrop((prev) => !prev)} icon={<BsThreeDotsVertical />} className={styles.icon} />
+                            <div className={styles.actions}>
+                                {onRemove && <IconButton onClick={() => onRemove(_id)} icon={<MdDeleteOutline />} className={styles.icon} />}
+                                <IconButton onClick={() => setDrop((prev) => !prev)} icon={<BsThreeDotsVertical />} className={styles.icon} />
+                            </div>
                         </div>
 
                         <Link className={styles.name} to={`/watch/${_id}`}>{title}</Link>

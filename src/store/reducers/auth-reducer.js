@@ -3,7 +3,7 @@ export const AuthReducer = (state, action) => {
         case "SET_USER":
             return action.payload
         case "REMOVE_USER":
-            localStorage.removeItem("felix-user-token")
+            localStorage.removeItem("felix-tv-user-token")
             return {
                 _id: "",
                 name: "",

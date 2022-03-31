@@ -1,6 +1,6 @@
 import styles from "./watch-later.module.scss"
 import { VideoCard, SidePane } from "@components"
-import { useWatchLater } from "@providers/watch-later-provider"
+import { useWatchLater } from "@providers"
 const WatchLater = () => {
     const { WatchLaterState } = useWatchLater()
     return (
@@ -21,11 +21,6 @@ const WatchLater = () => {
                             return <VideoCard orientation="horizontal" key={i} isLoading={true} />
                         })
                 }
-                {/* <VideoCard orientation="horizontal" />
-                <VideoCard orientation="horizontal" />
-                <VideoCard orientation="horizontal" />
-                <VideoCard orientation="horizontal" />
-                <VideoCard orientation="horizontal" /> */}
             </div>
         </div>
     )

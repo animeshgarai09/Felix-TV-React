@@ -1,9 +1,11 @@
-import { createContext, useContext, useReducer, useEffect } from "react"
+import { createContext, useContext, useReducer, useEffect, useState } from "react"
 import { AuthReducer } from "../reducers/auth-reducer"
 import axios from "axios"
 import { useToast } from "react-felix-ui"
 import { useNavigate } from "react-router-dom"
 import { useWatchLater } from "./watch-later-provider"
+import { ReactComponent as Spinner } from "@assets/svg/spinner.svg"
+
 const AuthContext = createContext()
 
 const initialState = {
@@ -16,6 +18,7 @@ const initialState = {
 }
 const AuthProvider = ({ children }) => {
     const [UserState, AuthDispatcher] = useReducer(AuthReducer, initialState)
+    const [load, setLoad] = useState(false)
     const toast = useToast()
     const navigate = useNavigate()
     const { setWatchLaterState } = useWatchLater()
@@ -102,12 +105,20 @@ const AuthProvider = ({ children }) => {
                 encodedToken: token
             }).then((response) => {
                 setUserDetails(response.data, token)
+                setLoad(true)
             })
+        } else {
+            setLoad(true)
         }
     }, [])
+
     return (
         <AuthContext.Provider value={{ UserState, handleSignIn, handleSignUp, handleLogout }}>
-            {children}
+            {
+                load
+                    ? children
+                    : < Spinner className="spinner animationSpin" />
+            }
         </AuthContext.Provider>
     )
 }

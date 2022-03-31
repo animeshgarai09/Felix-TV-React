@@ -14,23 +14,26 @@ import {
 import { NavLink } from "react-router-dom"
 
 const SideNav = () => {
+    const handleActiveNav = (navigationData) => {
+        return navigationData.isActive ? styles.active : ""
+    }
     return (
         <aside className={styles.container}>
             <List style="none">
                 <ListItem className={styles.nav_link}>
-                    <NavLink className={(navigationData) => navigationData.isActive ? styles.active : null} to="/explore"><IconButton icon={<MdOutlineExplore />} className={styles.icon} /></NavLink>
+                    <NavLink className={(navigationData) => handleActiveNav(navigationData)} to="/explore"><IconButton icon={<MdOutlineExplore />} className={styles.icon} /></NavLink>
                 </ListItem>
                 <ListItem className={styles.nav_link}>
-                    <NavLink className={(navigationData) => navigationData.isActive ? styles.active : null} to="/playlists"><IconButton icon={<RiPlayList2Fill />} className={styles.icon} /></NavLink>
+                    <NavLink className={(navigationData) => handleActiveNav(navigationData)} to="/playlists"><IconButton icon={<RiPlayList2Fill />} className={styles.icon} /></NavLink>
                 </ListItem>
                 <ListItem className={styles.nav_link}>
-                    <NavLink className={(navigationData) => navigationData.isActive ? styles.active : null} to="/watch-later"><IconButton icon={<AiOutlineClockCircle />} className={styles.icon} /></NavLink>
+                    <NavLink className={(navigationData) => handleActiveNav(navigationData)} to="/watch-later"><IconButton icon={<AiOutlineClockCircle />} className={styles.icon} /></NavLink>
                 </ListItem>
                 <ListItem className={styles.nav_link}>
-                    <NavLink className={(navigationData) => navigationData.isActive ? styles.active : null} to="/liked-videos"><IconButton icon={<HiOutlineThumbUp />} className={styles.icon} /></NavLink>
+                    <NavLink className={(navigationData) => handleActiveNav(navigationData)} to="/liked-videos"><IconButton icon={<HiOutlineThumbUp />} className={styles.icon} /></NavLink>
                 </ListItem>
                 <ListItem className={styles.nav_link}>
-                    <NavLink className={(navigationData) => navigationData.isActive ? styles.active : null} to="/history"><IconButton icon={<RiHistoryFill />} className={styles.icon} /></NavLink>
+                    <NavLink className={(navigationData) => handleActiveNav(navigationData)} to="/history"><IconButton icon={<RiHistoryFill />} className={styles.icon} /></NavLink>
                 </ListItem>
             </List>
             <List style="none">

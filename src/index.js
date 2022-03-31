@@ -6,9 +6,7 @@ import 'react-felix-ui/dist/cjs/index.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BrowserRouter as Router } from "react-router-dom";
-import { AuthProvider } from "@providers/auth-provider";
-import { VideoProvider } from "@providers/video-provider";
-import { WatchLaterProvider } from "@providers/watch-later-provider";
+import { AuthProvider, VideoProvider, HistoryProvider, WatchLaterProvider, LikesProvider } from "@providers";
 import { makeServer } from "./server";
 import { ToastProvider } from "react-felix-ui";
 
@@ -20,9 +18,13 @@ ReactDOM.render(
             <ToastProvider className="toast-container">
                 <VideoProvider>
                     <WatchLaterProvider>
-                        <AuthProvider>
-                            <App />
-                        </AuthProvider>
+                        <HistoryProvider>
+                            <LikesProvider>
+                                <AuthProvider>
+                                    <App />
+                                </AuthProvider>
+                            </LikesProvider>
+                        </HistoryProvider>
                     </WatchLaterProvider>
                 </VideoProvider>
             </ToastProvider>

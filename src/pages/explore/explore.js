@@ -1,7 +1,7 @@
 import styles from "./explore.module.scss"
 import { VideoCard } from "@components"
 import Slider from "react-slick";
-import { useVideos } from "@providers/video-provider";
+import { useVideos } from "@providers";
 const Explore = () => {
     const { VideoState: { videos } } = useVideos()
 
@@ -12,7 +12,7 @@ const Explore = () => {
         slidesToShow: 4,
         slidesToScroll: 1
     };
-
+    console.log("triggred")
     return (
         <div className={styles.container}>
             <section >

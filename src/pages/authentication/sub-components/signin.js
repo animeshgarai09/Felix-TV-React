@@ -32,7 +32,7 @@ const Signin = ({ signInRef }) => {
 
     const handleGuest = () => {
         setGuestState(true)
-        handleSignIn("animeshgarai09@gmail.com", "testing1234", "", setGuestState)
+        handleSignIn("animeshgarai09@gmail.com", "testing1234", from, setGuestState)
 
     }
 
@@ -48,7 +48,7 @@ const Signin = ({ signInRef }) => {
 
                 <div className={styles.form_buttons}>
                     <Button type="submit" isWide={true} isTransform={false} isLoading={submitState}>Sign in</Button>
-                    <Button theme="gray" onClick={handleGuest} isWide={true} isTransform={false} isLoading={guestState}>Sign in as a guest</Button>
+                    <Button theme="gray" onClick={handleGuest} isWide={true} isTransform={false} isLoading={guestState} className={styles.guest}>Sign in as a guest</Button>
                     <a href="#" className="text-center"> Forgot password?</a>
                 </div>
             </form>
