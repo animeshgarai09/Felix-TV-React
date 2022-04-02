@@ -5,7 +5,7 @@ import { RiPlayList2Fill, RiHistoryFill, RiShareForwardLine } from "react-icons/
 import { IoLogoLinkedin, IoIosCall, IoMdPricetag } from 'react-icons/io'
 import { HiMail, HiOutlineThumbUp } from 'react-icons/hi'
 import { FiPlayCircle } from 'react-icons/fi'
-import { MdAdd, MdPowerSettingsNew, MdOutlineNotificationsNone, MdOutlineExplore, MdDeleteOutline } from 'react-icons/md'
+import { MdAdd, MdPowerSettingsNew, MdOutlineNotificationsNone, MdOutlineExplore, MdDeleteOutline, MdOutlineThumbUpOffAlt, MdThumbUpAlt } from 'react-icons/md'
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa'
 
 export {
@@ -28,6 +28,8 @@ export {
     MdOutlineNotificationsNone,
     MdDeleteOutline,
     MdOutlineExplore,
+    MdOutlineThumbUpOffAlt,
+    MdThumbUpAlt,
     RiPlayList2Fill,
     RiHistoryFill,
     RiShareForwardLine,

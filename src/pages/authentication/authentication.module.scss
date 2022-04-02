@@ -52,6 +52,13 @@
         .signup {
             width: 20rem;
         }
+        .guest {
+            background-color: var(--clr-primary-light);
+            color: var(--clr-gray-3);
+            &:hover {
+                background-color: var(--clr-page-light-bg);
+            }
+        }
         #showSignup i {
             margin-left: 0.2rem;
         }

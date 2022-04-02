@@ -10,6 +10,7 @@ import { ReactComponent as Logo } from "@assets/svg/felix.svg"
 const Header = () => {
     const [drop, setDrop] = useState(false)
     const { UserState, handleLogout } = useAuth();
+    console.log("header")
     return (
         <header className={styles.container}>
             {/* <img src="favicon/favicon-32x32.png" alt="" /> */}

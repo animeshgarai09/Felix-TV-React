@@ -5,6 +5,8 @@ import VideoCard from "./video-card/video-card"
 import { DropDownMenu, DropDownItem } from "./dropdown/dropdown"
 import SidePane from "./side-pane/side-pane"
 import VideoEmbed from "./video-embed/video-embed"
+import RequireAuth from "./auth/require-auth"
+import RestrictAuth from "./auth/restrict-auth"
 export {
     Header,
     Layout1,
@@ -13,5 +15,7 @@ export {
     DropDownMenu,
     DropDownItem,
     SidePane,
-    VideoEmbed
+    VideoEmbed,
+    RequireAuth,
+    RestrictAuth
 }

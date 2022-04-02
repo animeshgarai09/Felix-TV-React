@@ -8,9 +8,10 @@ import {
     WatchLater,
     History,
     Authentication,
-    Watch
+    Watch,
+
 } from './pages'
-import { Layout1, Layout2 } from "./components"
+import { Layout1, Layout2, RequireAuth, RestrictAuth } from "@components"
 
 function App() {
     return (
@@ -18,17 +19,21 @@ function App() {
 
             <Route element={<Layout1 />}>
                 <Route path="/explore" element={<Explore />}></Route>
-                <Route path="/liked-videos" element={<LikedVideos />}></Route>
-                <Route path="/playlists" element={<Playlists />}></Route>
-                <Route path="/watch-later" element={<WatchLater />}></Route>
-                <Route path="/history" element={<History />}></Route>
                 <Route path="/watch/:id" element={<Watch />}></Route>
+                <Route element={<RequireAuth />}>
+                    <Route path="/liked-videos" element={<LikedVideos />}></Route>
+                    <Route path="/playlists" element={<Playlists />}></Route>
+                    <Route path="/watch-later" element={<WatchLater />}></Route>
+                    <Route path="/history" element={<History />}></Route>
+                </Route>
             </Route>
             <Route element={<Layout2 />}>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/signin" element={<Authentication />}></Route>
-                <Route path="/signup" element={<Authentication />}></Route>
                 <Route path="*" element={<Error404 />}></Route>
+                <Route element={<RestrictAuth />}>
+                    <Route path="/signin" element={<Authentication />}></Route>
+                    <Route path="/signup" element={<Authentication />}></Route>
+                </Route>
             </Route>
         </Routes>
     );

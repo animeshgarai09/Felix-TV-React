@@ -24,6 +24,7 @@
         .image {
             max-width: 14rem;
         }
+
         .content_wrap {
             padding: 1rem 1.7rem;
             .avatar {
@@ -34,6 +35,9 @@
             .dropdown {
                 top: 0;
                 right: 2.3rem;
+            }
+            .con .icon {
+                font-size: 1.4rem;
             }
         }
     }
@@ -108,11 +112,14 @@
             justify-content: space-between;
             .icon {
                 font-size: 1.2rem;
-                margin-right: -1rem;
                 color: var(--clr-white);
                 &:hover {
                     background: var(--clr-page-bg);
                 }
+            }
+            .actions {
+                display: flex;
+                margin-right: -1rem;
             }
         }
         .avatar {
