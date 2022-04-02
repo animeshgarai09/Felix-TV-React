@@ -8,3 +8,13 @@ export const videoCountByCategory = (videos, categories) => {
     }
     return categories
 }
+
+export const updatePlaylists = (state, playlist) => {
+    if (state.length !== 0) {
+        const index = state.findIndex((obj => obj._id === playlist._id));
+        state[index] = playlist
+        return [...state]
+    } else {
+        return [playlist]
+    }
+}

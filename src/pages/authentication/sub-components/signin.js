@@ -3,7 +3,7 @@ import styles from "../authentication.module.scss"
 import { Input, Button } from "react-felix-ui"
 import { Link, useLocation } from 'react-router-dom'
 import { FaChevronRight } from "@icons"
-import { useInputHandler } from "@hooks/useInputHandler"
+import useInputHandler from "@hooks/useInputHandler"
 import { useState } from "react"
 import { useAuth } from "@providers/auth-provider"
 

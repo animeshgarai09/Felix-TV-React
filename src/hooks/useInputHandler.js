@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const useInputHandler = (state) => {
+const useInputHandler = (state) => {
     const [inputState, setInputState] = useState(state)
     const inputChange = (evt) => {
         const value = evt.target.value;
@@ -9,5 +9,7 @@ export const useInputHandler = (state) => {
             [evt.target.name]: value
         });
     }
-    return { inputState, inputChange }
+    return { inputState, inputChange, setInputState }
 }
+
+export default useInputHandler
