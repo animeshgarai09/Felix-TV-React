@@ -2,6 +2,8 @@ import styles from "./explore.module.scss"
 import { VideoCard } from "@components"
 import Slider from "react-slick";
 import { useVideos } from "@providers";
+import { Helmet } from "react-helmet"
+
 const Explore = () => {
     const { VideoState: { videos } } = useVideos()
 
@@ -13,26 +15,30 @@ const Explore = () => {
         slidesToScroll: 1
     };
     return (
-        <div className={styles.container}>
-            <section >
-                <h3>Trending now</h3>
-                <Slider {...settings}>
-                    {
-                        videos.length !== 0
-                            ? videos.map((item, i) => {
-                                return <VideoCard
-                                    key={i}
-                                    videoItem={item}
-                                />
-                            })
-                            : [...Array(7)].map((_, i) => {
-                                return <VideoCard key={i} isLoading={true} />
-                            })
-                    }
-                </Slider>
-            </section>
+        <>
+            <Helmet>
+                <title>Explore | Felix TV</title>
+            </Helmet>
+            <div className={styles.container}>
+                <section >
+                    <h3>Trending now</h3>
+                    <Slider {...settings}>
+                        {
+                            videos.length !== 0
+                                ? videos.map((item, i) => {
+                                    return <VideoCard
+                                        key={i}
+                                        videoItem={item}
+                                    />
+                                })
+                                : [...Array(7)].map((_, i) => {
+                                    return <VideoCard key={i} isLoading={true} />
+                                })
+                        }
+                    </Slider>
+                </section>
 
-            {/* <section >
+                {/* <section >
                 <h3>Trending now</h3>
                 <Slider {...settings}>
                     {
@@ -62,7 +68,8 @@ const Explore = () => {
                     }
                 </Slider>
             </section> */}
-        </div>
+            </div>
+        </>
     )
 }
 

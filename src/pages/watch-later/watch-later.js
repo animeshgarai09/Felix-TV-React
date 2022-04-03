@@ -1,28 +1,36 @@
 import styles from "./watch-later.module.scss"
 import { VideoCard, SidePane } from "@components"
 import { useWatchLater } from "@providers"
+import { NotFound } from "@components"
+import { Helmet } from "react-helmet"
+
 const WatchLater = () => {
-    const { WatchLaterState } = useWatchLater()
+    const { WatchLaterState: { watchlater, count } } = useWatchLater()
     return (
-        <div className={styles.container}>
-            <SidePane title="Watch Later..." time="30 Minutes" count={30} />
-            <div className={styles.main}>
-                {
-                    WatchLaterState.length !== 0
-                        ? WatchLaterState.map((item, i) => {
-                            return <VideoCard
-                                orientation="horizontal"
-                                videoItem={item}
-                                isRemoveWatchLater={true}
-                                key={i}
-                            />
-                        })
-                        : [...Array(4)].map((_, i) => {
-                            return <VideoCard orientation="horizontal" key={i} isLoading={true} />
-                        })
-                }
+        <>
+            <Helmet>
+                <title>Watch later | Felix TV</title>
+            </Helmet>
+            <div className={styles.container}>
+                <SidePane title="Watch Later..." count={count} />
+                <div className={styles.main}>
+                    {
+                        watchlater.length !== 0
+                            ? watchlater.map((item, i) => {
+                                return <VideoCard
+                                    orientation="horizontal"
+                                    videoItem={item}
+                                    isRemoveWatchLater={true}
+                                    key={i}
+                                />
+                            })
+                            : <NotFound title="No videos added" des="Hope you find something to watch later !" />
+
+                    }
+                </div>
             </div>
-        </div>
+        </>
+
     )
 }
 

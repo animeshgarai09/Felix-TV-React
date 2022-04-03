@@ -47,7 +47,7 @@ const VideoCard = ({
 
                 : <>
                     <div className={styles.image}>
-                        <Link className={styles.name} to={`/watch/${_id}`}><Image src={require(`@assets/images/thumbnails/${thumbnail}`)} alt="thumbnail" /></Link>
+                        <Link to={`/watch/${_id}`}><Image src={require(`@assets/images/thumbnails/${thumbnail}`)} alt="thumbnail" /></Link>
                     </div>
                     <div className={styles.content_wrap}>
                         <Avatar src={require(`@assets/images/icons/${icon}`)} size="md" className={styles.avatar} />

@@ -1,13 +1,20 @@
 import { Button } from "react-felix-ui"
 import { Link } from "react-router-dom"
 import styles from "./home.module.scss"
-const Home = () => {
+import { Helmet } from "react-helmet"
 
+const Home = () => {
     return (
-        <div className={styles.container}>
-            <h1>Home Page</h1>
-            <Link to="/explore"><Button >Explore</Button></Link>
-        </div>
+        <>
+            <Helmet>
+                <title>Home| Felix TV</title>
+            </Helmet>
+
+            <div className={styles.container}>
+                <h1>Home Page</h1>
+                <Link to="/explore"><Button >Explore</Button></Link>
+            </div>
+        </>
     )
 }
 

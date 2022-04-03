@@ -8,6 +8,7 @@ import VideoEmbed from "./video-embed/video-embed"
 import RequireAuth from "./auth/require-auth"
 import RestrictAuth from "./auth/restrict-auth"
 import Modal from "./modal/modal"
+import NotFound from "./not-found/not-found"
 export {
     Header,
     Layout1,
@@ -19,5 +20,6 @@ export {
     VideoEmbed,
     RequireAuth,
     RestrictAuth,
-    Modal
+    Modal,
+    NotFound
 }

@@ -9,12 +9,13 @@ const PlaylistModal = ({
     closeModal,
     onCreate,
     onAdd,
-    onRemove
+    onRemove,
+    onCreateAdd
 }) => {
     const { inputState, inputChange, setInputState } = useInputHandler({
-        playlist: "",
+        playlistName: "",
     })
-    const { PlaylistState: { playlists, modal, video, createBtnState } } = usePlaylist()
+    const { PlaylistState: { playlists, modal, video, createBtnState }, selectedPlaylistId } = usePlaylist()
 
     const checkIfVideoInPlaylists = (id, playlists) => {
         return playlists.map(({ title, _id, videos }) => {
@@ -36,11 +37,19 @@ const PlaylistModal = ({
         onRemove(video._id, playlistId, title)
     }
 
-    useEffect(() => {
-        if (createBtnState) {
-            setInputState({ playlist: "" })
+    const handleOnCreate = (playlistName) => {
+        if (video !== null) {
+            onCreateAdd(playlistName, video)
+        } else {
+            onCreate(playlistName)
         }
-    }, [createBtnState])
+    }
+
+    useEffect(() => {
+        if (!modal) {
+            setInputState({ playlistName: "" })
+        }
+    }, [modal])
 
     return (
         <Modal
@@ -58,8 +67,8 @@ const PlaylistModal = ({
                     }
                 </>
             }
-            <form onSubmit={(e) => { e.preventDefault(); onCreate(inputState.playlist) }} className={styles.modal_content}>
-                <Input type="text" name="playlist" label="Name" value={inputState.playlist} onChange={inputChange} />
+            <form onSubmit={(e) => { e.preventDefault(); handleOnCreate(inputState.playlistName) }} className={styles.modal_content}>
+                <Input type="text" name="playlistName" label="Name" value={inputState.playlistName} onChange={inputChange} />
                 <Button type="submit" isWide={true} variant="ghost" isLoading={createBtnState}>Create</Button>
             </form>
         </Modal>

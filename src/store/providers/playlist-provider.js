@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useState } from "react"
+import { createContext, useContext, useReducer } from "react"
 import axios from "axios"
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useToast } from 'react-felix-ui'
@@ -67,15 +67,17 @@ const PlaylistProvider = ({ children }) => {
                 },
             }
         ).then((response) => {
+            console.log(response.data.playlists)
             PlaylistDispatch({
                 type: "SET_PLAYLISTS",
                 payload: response.data.playlists
             })
-            if (PlaylistState.selectedPlaylistId === null) {
-                PlaylistDispatch({
-                    type: "SET_SELECTED_PLAYLIST",
-                    payload: response.data.playlists[0]._id
-                })
+            if (PlaylistState.playlists.length === 0) {
+                navigate(`/playlists/${response.data.playlists[0]._id}`)
+                // PlaylistDispatch({
+                //     type: "SET_SELECTED_PLAYLIST",
+                //     payload: response.data.playlists[0]._id
+                // })
             }
 
         }).catch((err) => {
@@ -122,6 +124,71 @@ const PlaylistProvider = ({ children }) => {
         })
     }
 
+    const addVideoToNewPlaylist = (title, video) => {
+
+        PlaylistDispatch({
+            type: "SET_CREATE_BTN_STATE",
+            payload: true
+        })
+
+        axios.post("/api/user/playlists",
+            {
+                playlist: { title }
+            },
+            {
+                headers: {
+                    authorization: encodedToken,
+                },
+            }
+        ).then((response) => {
+            const playlists = response.data.playlists
+            PlaylistDispatch({
+                type: "SET_PLAYLISTS",
+                payload: playlists
+            })
+
+            if (PlaylistState.playlists.length === 0) {
+                navigate(`/playlists/${response.data.playlists[0]._id}`)
+            }
+
+            /*
+                After Creating the playlist add the video to same playlist
+            */
+            const lastPlaylist = playlists[playlists.length - 1]
+
+            axios.post(`/api/user/playlists/${lastPlaylist._id}`,
+                { video },
+                {
+                    headers: {
+                        authorization: encodedToken,
+                    },
+                }
+            ).then((response) => {
+                PlaylistDispatch({
+                    type: "SET_PLAYLIST",
+                    payload: response.data.playlist
+                })
+                toast({
+                    status: "success",
+                    message: `Video added to ${lastPlaylist.title} `,
+                    duration: 2
+                })
+            })
+        }).catch((err) => {
+            toast({
+                status: "error",
+                message: "Sign in to your account first",
+                duration: 2
+            })
+            navigate('/signin', { state: { from: location }, replace: true })
+        }).finally(() => {
+            PlaylistDispatch({
+                type: "RESET",
+                payload: false
+            })
+        })
+    }
+
     const removeVideoFromPlaylist = (videoId, playlistId, playlistName) => {
         axios.delete(`/api/user/playlists/${playlistId}/${videoId}`,
             {
@@ -162,6 +229,7 @@ const PlaylistProvider = ({ children }) => {
                 type: "SET_PLAYLISTS",
                 payload: response.data.playlists
             })
+            navigate('/playlists')
             toast({
                 status: "success",
                 message: `${playlistName} playlist deleted`,
@@ -188,6 +256,7 @@ const PlaylistProvider = ({ children }) => {
     return (
         <PlaylistContext.Provider value={{
             PlaylistState,
+            PlaylistDispatch,
             openPlaylistModal,
             onSelectPlaylist,
             removeVideoFromPlaylist,
@@ -200,6 +269,7 @@ const PlaylistProvider = ({ children }) => {
                 onCreate={createPlaylist}
                 onAdd={addVideoToPlaylist}
                 onRemove={removeVideoFromPlaylist}
+                onCreateAdd={addVideoToNewPlaylist}
             />
         </PlaylistContext.Provider>
     )

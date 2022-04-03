@@ -8,7 +8,6 @@ const LikesContext = createContext()
 const initState = {
     likes: [],
     count: 0,
-    // playTime: 0,
 }
 
 
@@ -31,7 +30,7 @@ const LikesProvider = ({ children }) => {
                     },
                 }
             ).then((response) => {
-                setLikesState({ ...LikesState, likes: response.data.likes });
+                setLikesState({ likes: response.data.likes, count: response.data.likes.length });
             }).catch((err) => {
                 toast({
                     status: "error",
@@ -49,7 +48,7 @@ const LikesProvider = ({ children }) => {
                 authorization: encodedToken,
             },
         }).then((response) => {
-            setLikesState({ ...LikesState, likes: response.data.likes });
+            setLikesState({ likes: response.data.likes, count: response.data.likes.length });
         }).catch(err => {
             console.log(err);
             toast({
@@ -66,7 +65,7 @@ const LikesProvider = ({ children }) => {
     }
 
     return (
-        <LikesContext.Provider value={{ LikesState, addToLikes, removeFromLikes, checkInLikes }}>
+        <LikesContext.Provider value={{ LikesState, setLikesState, addToLikes, removeFromLikes, checkInLikes }}>
             {children}
         </LikesContext.Provider>
     )

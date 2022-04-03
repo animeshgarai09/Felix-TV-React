@@ -39,6 +39,7 @@ import {
     getWatchLaterVideosHandler,
     removeItemFromWatchLaterVideos,
 } from "./backend/controllers/WatchLaterController";
+import { v4 as uuid } from "uuid"
 export function makeServer({ environment = "development" } = {}) {
     return new Server({
         serializers: {
@@ -66,9 +67,42 @@ export function makeServer({ environment = "development" } = {}) {
             users.forEach((item) =>
                 server.create("user", {
                     ...item,
-                    likes: [],
-                    watchlater: [],
-                    history: [],
+                    likes: [{
+                        _id: "7ank0q-ebt6xb-oaz4dey1",
+                        title: "Agricultural Engineering: Innovative Technologies | Masters of Engineering",
+                        description: "Enhancement in agriculture is key to produce enough food for the world’s population. From Ancient Egypt to today, this one-off will tackle the diverse techniques, know-how and technologies to that purpose.",
+                        creator: "DW Documentary",
+                        icon: "dw.jpeg",
+                        thumbnail: "-jS496h3vcw-MQ.jpg",
+                        embedId: "-jS496h3vcw",
+                        views: "50k",
+                        uploadedOn: "5 Months ago",
+                        category: "Documentary",
+                    }],
+                    watchlater: [{
+                        _id: "7ank0q-ebt6xb-oaz4dey1",
+                        title: "Agricultural Engineering: Innovative Technologies | Masters of Engineering",
+                        description: "Enhancement in agriculture is key to produce enough food for the world’s population. From Ancient Egypt to today, this one-off will tackle the diverse techniques, know-how and technologies to that purpose.",
+                        creator: "DW Documentary",
+                        icon: "dw.jpeg",
+                        thumbnail: "-jS496h3vcw-MQ.jpg",
+                        embedId: "-jS496h3vcw",
+                        views: "50k",
+                        uploadedOn: "5 Months ago",
+                        category: "Documentary",
+                    }],
+                    history: [{
+                        _id: "7ank0q-ebt6xb-oaz4dey1",
+                        title: "Agricultural Engineering: Innovative Technologies | Masters of Engineering",
+                        description: "Enhancement in agriculture is key to produce enough food for the world’s population. From Ancient Egypt to today, this one-off will tackle the diverse techniques, know-how and technologies to that purpose.",
+                        creator: "DW Documentary",
+                        icon: "dw.jpeg",
+                        thumbnail: "-jS496h3vcw-MQ.jpg",
+                        embedId: "-jS496h3vcw",
+                        views: "50k",
+                        uploadedOn: "5 Months ago",
+                        category: "Documentary",
+                    }],
                     playlists: [],
                 })
             );
