@@ -30,6 +30,12 @@
             &:hover {
                 background: #1e1e1e;
             }
+            &.active {
+                background: var(--clr-page-bg);
+                .arrow {
+                    display: none;
+                }
+            }
             .block {
                 display: flex;
                 flex-direction: column;
@@ -61,5 +67,29 @@
         gap: 1rem;
         flex: 1 1;
         padding: 1.5rem 2.5rem;
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
+}
+
+.label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--clr-gray-2);
+    margin-bottom: 0.8rem;
+    cursor: pointer;
+    transition: 0.2s;
+    input {
+        margin-right: 1rem;
+    }
+    &:hover {
+        color: var(--clr-gray-3);
+    }
+    // &:last-child {
+    //     margin-bottom: 1rem;
+    // }
 }

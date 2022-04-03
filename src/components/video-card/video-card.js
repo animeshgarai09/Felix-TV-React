@@ -3,8 +3,10 @@ import { Image, Avatar, IconButton } from "react-felix-ui"
 import { BsThreeDotsVertical, AiOutlineClockCircle, BiListPlus, RiShareForwardLine, MdDeleteOutline } from "@icons"
 import { DropDownMenu, DropDownItem } from "../dropdown/dropdown.js"
 import { useState } from "react"
-import { useWatchLater } from "@providers/watch-later-provider"
+import { useWatchLater, usePlaylist } from "@providers"
 import { Link } from "react-router-dom"
+import useShareVideo from "@hooks/useShareVideo.js"
+
 const VideoCard = ({
     isLoading,
     orientation,
@@ -25,6 +27,9 @@ const VideoCard = ({
 
     const [drop, setDrop] = useState(false)
     const { addToWatchLater, removeFromWatchLater } = useWatchLater()
+    const { openPlaylistModal } = usePlaylist()
+    const shareVideo = useShareVideo()
+
     return (
         <div className={`${styles.container} ${orientation ? styles.horizontal : styles.vertical}`}>
             {isLoading ?
@@ -67,8 +72,8 @@ const VideoCard = ({
                                     ? < DropDownItem onClick={() => removeFromWatchLater(videoItem._id)}><MdDeleteOutline /> Remove from Watch later</DropDownItem>
                                     : < DropDownItem onClick={() => addToWatchLater(videoItem)}><AiOutlineClockCircle /> Save to Watch later</DropDownItem>
                             }
-                            <DropDownItem><BiListPlus /> Save to playlist</DropDownItem>
-                            <DropDownItem><RiShareForwardLine /> Share</DropDownItem>
+                            <DropDownItem onClick={() => openPlaylistModal(videoItem)}><BiListPlus /> Save to playlist</DropDownItem>
+                            <DropDownItem onClick={() => shareVideo(videoItem._id)}><RiShareForwardLine /> Share</DropDownItem>
                         </DropDownMenu>
                         }
                     </div>

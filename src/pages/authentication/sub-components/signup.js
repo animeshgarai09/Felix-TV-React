@@ -2,7 +2,7 @@ import styles from "../authentication.module.scss"
 import { Input, Button } from "react-felix-ui"
 import { Link } from 'react-router-dom';
 import { FaChevronLeft } from "@icons"
-import { useInputHandler } from "@hooks/useInputHandler"
+import useInputHandler from "@hooks/useInputHandler"
 import { useState, forwardRef } from "react"
 import { useAuth } from "@providers/auth-provider"
 

@@ -12,7 +12,6 @@ const Explore = () => {
         slidesToShow: 4,
         slidesToScroll: 1
     };
-    console.log("triggred")
     return (
         <div className={styles.container}>
             <section >

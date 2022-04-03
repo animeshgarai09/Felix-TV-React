@@ -7,6 +7,7 @@ import SidePane from "./side-pane/side-pane"
 import VideoEmbed from "./video-embed/video-embed"
 import RequireAuth from "./auth/require-auth"
 import RestrictAuth from "./auth/restrict-auth"
+import Modal from "./modal/modal"
 export {
     Header,
     Layout1,
@@ -17,5 +18,6 @@ export {
     SidePane,
     VideoEmbed,
     RequireAuth,
-    RestrictAuth
+    RestrictAuth,
+    Modal
 }
