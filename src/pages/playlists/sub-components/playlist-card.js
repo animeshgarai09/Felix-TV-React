@@ -8,7 +8,6 @@ const PlaylistCard = ({ id, title, count, selected, onClick }) => {
                 <div className={styles.block}>
                     <span className={styles.name}>{title}</span>
                     <span className={styles.info}>
-                        <span><AiOutlineClockCircle /> 00 Hours</span>
                         <span><FiPlayCircle /> {count} Videos</span>
                     </span>
                 </div>

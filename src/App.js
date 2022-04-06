@@ -9,7 +9,7 @@ import {
     History,
     Authentication,
     Watch,
-
+    ExploreByCategory
 } from './pages'
 import { Layout1, Layout2, RequireAuth, RestrictAuth } from "@components"
 
@@ -19,6 +19,7 @@ function App() {
 
             <Route element={<Layout1 />}>
                 <Route path="/explore" element={<Explore />}></Route>
+                <Route path="/explore/:category" element={<ExploreByCategory />}></Route>
                 <Route path="/watch/:id" element={<Watch />}></Route>
                 <Route element={<RequireAuth />}>
                     <Route path="/liked-videos" element={<LikedVideos />}></Route>

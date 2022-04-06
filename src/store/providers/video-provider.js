@@ -5,7 +5,10 @@ const VideoContext = createContext()
 
 const initState = {
     videos: [],
-    categories: []
+    categories: [],
+    trending: [],
+    documentary: [],
+    gardening: []
 }
 const VideoProvider = ({ children }) => {
 

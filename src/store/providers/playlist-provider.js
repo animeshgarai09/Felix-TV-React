@@ -72,14 +72,6 @@ const PlaylistProvider = ({ children }) => {
                 type: "SET_PLAYLISTS",
                 payload: response.data.playlists
             })
-            if (PlaylistState.playlists.length === 0) {
-                navigate(`/playlists/${response.data.playlists[0]._id}`)
-                // PlaylistDispatch({
-                //     type: "SET_SELECTED_PLAYLIST",
-                //     payload: response.data.playlists[0]._id
-                // })
-            }
-
         }).catch((err) => {
             toast({
                 status: "error",
@@ -146,10 +138,6 @@ const PlaylistProvider = ({ children }) => {
                 type: "SET_PLAYLISTS",
                 payload: playlists
             })
-
-            if (PlaylistState.playlists.length === 0) {
-                navigate(`/playlists/${response.data.playlists[0]._id}`)
-            }
 
             /*
                 After Creating the playlist add the video to same playlist

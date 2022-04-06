@@ -7,6 +7,7 @@ import History from "./history/history";
 import Error404 from "./404/404";
 import Authentication from "./authentication/authentication";
 import Watch from "./watch/watch";
+import ExploreByCategory from "./by category/by-category";
 export {
     Home,
     Error404,
@@ -16,5 +17,6 @@ export {
     WatchLater,
     History,
     Authentication,
-    Watch
+    Watch,
+    ExploreByCategory
 }
