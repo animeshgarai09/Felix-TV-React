@@ -8,6 +8,7 @@ import { Link } from "react-router-dom"
 import useShareVideo from "@hooks/useShareVideo.js"
 
 const VideoCard = ({
+    className,
     isLoading,
     orientation,
     isRemoveWatchLater = false,
@@ -31,7 +32,7 @@ const VideoCard = ({
     const shareVideo = useShareVideo()
 
     return (
-        <div className={`${styles.container} ${orientation ? styles.horizontal : styles.vertical}`}>
+        <div className={`${styles.container} ${orientation ? styles.horizontal : styles.vertical} ${className}`}>
             {isLoading ?
                 <>
                     <div className={`${styles.skeleton_image} loader`}></div>
@@ -47,7 +48,7 @@ const VideoCard = ({
 
                 : <>
                     <div className={styles.image}>
-                        <Link className={styles.name} to={`/watch/${_id}`}><Image src={require(`@assets/images/thumbnails/${thumbnail}`)} alt="thumbnail" /></Link>
+                        <Link to={`/watch/${_id}`}><Image src={require(`@assets/images/thumbnails/${thumbnail}`)} alt="thumbnail" /></Link>
                     </div>
                     <div className={styles.content_wrap}>
                         <Avatar src={require(`@assets/images/icons/${icon}`)} size="md" className={styles.avatar} />

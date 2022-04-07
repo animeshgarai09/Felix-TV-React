@@ -6,15 +6,20 @@ import { useToast } from 'react-felix-ui'
 
 const WatchLaterContext = createContext()
 
+const initState = {
+    watchlater: [],
+    count: 0,
+}
+
 const WatchLaterProvider = ({ children }) => {
-    const [WatchLaterState, setWatchLaterState] = useState([])
+    const [WatchLaterState, setWatchLaterState] = useState(initState)
     const encodedToken = localStorage.getItem("felix-tv-user-token");
     const toast = useToast()
     const navigate = useNavigate()
     const location = useLocation()
 
     const addToWatchLater = (item) => {
-        const checkPresence = WatchLaterState.filter((bItem => bItem._id === item._id))
+        const checkPresence = WatchLaterState.watchlater.filter((bItem => bItem._id === item._id))
         if (checkPresence.length === 0) {
             axios.post("/api/user/watchlater",
                 { video: item },
@@ -24,7 +29,7 @@ const WatchLaterProvider = ({ children }) => {
                     },
                 }
             ).then((response) => {
-                setWatchLaterState(response.data.watchlater);
+                setWatchLaterState({ watchlater: response.data.watchlater, count: response.data.watchlater.length });
                 toast({
                     status: "success",
                     message: "Video added to watch later",
@@ -53,7 +58,7 @@ const WatchLaterProvider = ({ children }) => {
                 authorization: encodedToken,
             },
         }).then((response) => {
-            setWatchLaterState(response.data.watchlater);
+            setWatchLaterState({ watchlater: response.data.watchlater, count: response.data.watchlater.length });
             toast({
                 status: "success",
                 message: "Video removed from watch later",
@@ -70,7 +75,7 @@ const WatchLaterProvider = ({ children }) => {
         })
     }
     const checkInWatchLater = (id) => {
-        return WatchLaterState.some((item) => item._id === id)
+        return WatchLaterState.watchlater.some((item) => item._id === id)
     }
     return (
         <WatchLaterContext.Provider value={{ WatchLaterState, setWatchLaterState, addToWatchLater, removeFromWatchLater, checkInWatchLater }}>

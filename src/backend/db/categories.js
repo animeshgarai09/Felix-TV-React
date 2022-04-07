@@ -12,7 +12,7 @@ export const categories = [
     },
     {
         _id: uuid(),
-        categoryName: "Gardening Tips",
+        categoryName: "Basic Gardening",
     },
     {
         _id: uuid(),

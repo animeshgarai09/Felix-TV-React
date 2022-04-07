@@ -6,6 +6,7 @@ import { FaChevronRight } from "@icons"
 import useInputHandler from "@hooks/useInputHandler"
 import { useState } from "react"
 import { useAuth } from "@providers/auth-provider"
+import { Helmet } from "react-helmet"
 
 const Signin = ({ signInRef }) => {
 
@@ -37,22 +38,28 @@ const Signin = ({ signInRef }) => {
     }
 
     return (
-        <div className={styles.signin}>
-            <div className={styles.heading}>
-                <h2>Sign in</h2>
-                <Link to="/signup"><Button size="sm" variant="ghost" isRound={true} isTransform={false} >Sign up <FaChevronRight /> </Button></Link>
-            </div>
-            <form onSubmit={handleSubmit}>
-                <Input type="email" label="Email" name="email" value={inputState.email} Fref={signInRef} onChange={inputChange} />
-                <Input type="password" label="Password" name="password" value={inputState.password} onChange={inputChange} />
-
-                <div className={styles.form_buttons}>
-                    <Button type="submit" isWide={true} isTransform={false} isLoading={submitState}>Sign in</Button>
-                    <Button theme="gray" onClick={handleGuest} isWide={true} isTransform={false} isLoading={guestState} className={styles.guest}>Sign in as a guest</Button>
-                    <a href="#" className="text-center"> Forgot password?</a>
+        <>
+            <Helmet>
+                <title>Sign in| Felix TV</title>
+            </Helmet>
+            <div className={styles.signin}>
+                <div className={styles.heading}>
+                    <h2>Sign in</h2>
+                    <Link to="/signup"><Button size="sm" variant="ghost" isRound={true} isTransform={false} >Sign up <FaChevronRight /> </Button></Link>
                 </div>
-            </form>
-        </div>
+                <form onSubmit={handleSubmit}>
+                    <Input type="email" label="Email" name="email" value={inputState.email} Fref={signInRef} onChange={inputChange} />
+                    <Input type="password" label="Password" name="password" value={inputState.password} onChange={inputChange} />
+
+                    <div className={styles.form_buttons}>
+                        <Button type="submit" isWide={true} isTransform={false} isLoading={submitState}>Sign in</Button>
+                        <Button theme="gray" onClick={handleGuest} isWide={true} isTransform={false} isLoading={guestState} className={styles.guest}>Sign in as a guest</Button>
+                        <a href="#" className="text-center"> Forgot password?</a>
+                    </div>
+                </form>
+            </div>
+        </>
+
     )
 }
 

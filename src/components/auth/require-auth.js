@@ -8,7 +8,6 @@ const RequireAuth = () => {
         UserState._id
             ? <Outlet />
             : <Navigate to="/signin" state={{ from: location }} replace />
-
     )
 }
 

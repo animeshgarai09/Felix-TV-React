@@ -4,8 +4,9 @@ import axios from "axios"
 import { useToast } from "react-felix-ui"
 import { useNavigate } from "react-router-dom"
 import { useWatchLater } from "./watch-later-provider"
+import { useHistory } from "./history-provider"
+import { useLikes } from "./like-provider"
 import { ReactComponent as Spinner } from "@assets/svg/spinner.svg"
-
 const AuthContext = createContext()
 
 const initialState = {
@@ -22,6 +23,8 @@ const AuthProvider = ({ children }) => {
     const toast = useToast()
     const navigate = useNavigate()
     const { setWatchLaterState } = useWatchLater()
+    const { setLikesState } = useLikes()
+    const { setHistoryState } = useHistory()
 
     const handleSignIn = (email, password, redirect, setState) => {
         axios.post("/api/auth/login", {
@@ -95,7 +98,9 @@ const AuthProvider = ({ children }) => {
                 encodedToken: token
             }
         })
-        setWatchLaterState(user.watchlater)
+        setWatchLaterState({ watchlater: user.watchlater, count: user.watchlater.length })
+        setLikesState({ likes: user.likes, count: user.likes.length })
+        setHistoryState({ history: user.history, count: user.history.length })
     }
 
     useEffect(() => {
@@ -105,6 +110,12 @@ const AuthProvider = ({ children }) => {
                 encodedToken: token
             }).then((response) => {
                 setUserDetails(response.data, token)
+                setLoad(true)
+            }).catch((err) => {
+                AuthDispatcher({
+                    type: "REMOVE_USER"
+                })
+                navigate("/")
                 setLoad(true)
             })
         } else {

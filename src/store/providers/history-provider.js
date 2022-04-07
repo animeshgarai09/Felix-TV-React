@@ -8,7 +8,6 @@ const HistoryContext = createContext()
 const initState = {
     history: [],
     count: 0,
-    // playTime: 0,
 }
 const HistoryProvider = ({ children }) => {
 
@@ -29,7 +28,7 @@ const HistoryProvider = ({ children }) => {
                     },
                 }
             ).then((response) => {
-                setHistoryState({ ...HistoryState, history: response.data.history });
+                setHistoryState({ history: response.data.history, count: response.data.history.length });
             }).catch((err) => {
                 toast({
                     status: "error",
@@ -47,7 +46,7 @@ const HistoryProvider = ({ children }) => {
                 authorization: encodedToken,
             },
         }).then((response) => {
-            setHistoryState({ ...HistoryState, history: response.data.history });
+            setHistoryState({ history: response.data.history, count: response.data.history.length });
             toast({
                 status: "success",
                 message: "Video removed from history",
@@ -92,7 +91,7 @@ const HistoryProvider = ({ children }) => {
     }
 
     return (
-        <HistoryContext.Provider value={{ HistoryState, addToHistory, removeFromHistory, clearHistory, checkInHistory }}>
+        <HistoryContext.Provider value={{ HistoryState, setHistoryState, addToHistory, removeFromHistory, clearHistory, checkInHistory }}>
             {children}
         </HistoryContext.Provider>
     )

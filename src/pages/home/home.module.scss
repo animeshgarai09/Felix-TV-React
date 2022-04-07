@@ -1,8 +1,16 @@
 .container {
-    min-height: var(--min-height);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    position: absolute;
+    top: 0;
+    width: 100%;
     gap: 1rem;
     align-items: center;
+    background: url(../../assets/images/Frame-2.jpg);
+    background-size: cover;
+    h1 {
+        font-size: 4.5rem;
+    }
 }

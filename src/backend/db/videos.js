@@ -11,6 +11,7 @@ export const videos = [
         creator: "DW Documentary",
         icon: "dw.jpeg",
         thumbnail: "-jS496h3vcw-MQ.jpg",
+        duration: "51:15",
         embedId: "-jS496h3vcw",
         views: "50k",
         uploadedOn: "5 Months ago",
@@ -23,6 +24,7 @@ export const videos = [
         creator: "DW Documentary",
         icon: "dw.jpeg",
         thumbnail: "qwNVNE83Udo-MQ.jpg",
+        duration: "42:31",
         embedId: "qwNVNE83Udo",
         views: "50k",
         uploadedOn: "5 Months ago",
@@ -40,10 +42,13 @@ export const videos = [
         creator: "DW Documentary",
         icon: "dw.jpeg",
         thumbnail: "KIEOuKD9KX8-MQ.jpg",
+        duration: "25:57",
         embedId: "KIEOuKD9KX8",
         views: "50k",
         uploadedOn: "5 Months ago",
         category: "Documentary",
+        tags: "trending"
+
     },
     {
         _id: '3wyr21-9jecfm-shwc3khn',
@@ -58,6 +63,7 @@ export const videos = [
         creator: "Freethink",
         icon: "freethink.jpeg",
         thumbnail: "J4SaSfnHK3I-MQ.jpg",
+        duration: "11:04",
         embedId: "J4SaSfnHK3I",
         views: "50k",
         uploadedOn: "10 days ago",
@@ -86,10 +92,12 @@ export const videos = [
         creator: "Freethink",
         icon: "freethink.jpeg",
         thumbnail: "KfB2sx9uCkI-MQ.jpg",
+        duration: "6:20",
         embedId: "KfB2sx9uCkI",
         views: "50k",
         uploadedOn: "1 year ago",
         category: "Documentary",
+        tags: "trending"
     },
     {
         _id: 'xpmy12-k8fqxp-lwaph1qj',
@@ -102,9 +110,84 @@ export const videos = [
         creator: "Quartz",
         icon: "quartz.jpeg",
         thumbnail: "Tjr6z1GMDqc-MQ.jpg",
+        duration: "42:31",
         embedId: "qwNVNE83Udo",
         views: "50k",
         uploadedOn: "5 Months ago",
         category: "Documentary",
+        tags: "trending",
+    },
+    {
+        _id: 'dmwx19-3e0r17-7jiqjs86',
+        title: "How Much Sun A Plant Needs| Gardening Basics| Part1",
+        description: "If you are a gardening beginner this four part might be of great help for you to grow your greens at home. These videos cover all home gardening basics like watering, light requirement, gardening tools and how to use cocopeat for soil.",
+        embedId: "Neda0goqbRk",
+        creator: "Garden Up",
+        category: "Basic Gardening",
+        icon: "garden up.jpeg",
+        thumbnail: "hq720.webp",
+        views: "166K",
+        uploadedOn: "2 years",
+        duration: "3:18"
+    },
+
+    {
+        _id: '6c4wh1-q7rugu-kt02uade',
+        title: "Correct Way of Watering Plants| Gardening Basics Part 3",
+        description: "If you are a gardening beginner this four part might be of great help for you to grow your greens at home. In thideo I talk about how much water to give to plant. Often for beginners its difficult to know how to and how much to water your plants. Here I break that down to simple tricks and basics.",
+        embedId: "BtnRHP9Cd_E",
+        creator: "Garden Up",
+        category: "Basic Gardening",
+        icon: "garden up.jpeg",
+        thumbnail: "hq7203.webp",
+        views: "233K",
+        uploadedOn: "2 years",
+        duration: "4:05",
+        tags: "trending"
+    },
+    {
+        _id: '57f0d1-hhju6v-tmt6wakd',
+        title: "How to Use Cocopeat for Plants| Gardening Basics| Part 2",
+        description: `Simple fundamental behind cocopeat use is that you add water and the coconut fibres absorb that water and the brick expands. This is a 5kg brick (dry weight) that can expand upto cocpeat enough for 8-10 medium size pots.
+                        If you are just starting out I would say try out 1 kg or 2kg bricks.In recent times Cocopeat has become very popular especially in urban homes.It's great for container gardening.`,
+        embedId: "WFu-NRU4kdw",
+        creator: "Garden Up",
+        category: "Basic Gardening",
+        icon: "garden up.jpeg",
+        thumbnail: "hq720 (1).webp",
+        views: "205K",
+        uploadedOn: "2 years",
+        duration: "2:23",
+        tags: "trending"
+
+    },
+    {
+        _id: '088lrv-nzu97c-opi1m2bu',
+        title: "Vegetables and Herbs you can Grow from your Kitchen | Don't buy seeds",
+        description: `Simple fundamental behind cocopeat use is that you add water and the coconut fibres absorb that water and the brick expands. This is a 5kg brick (dry weight) that can expand upto cocpeat enough for 8-10 medium size pots.
+                        If you are just starting out I would say try out 1 kg or 2kg bricks.In recent times Cocopeat has become very popular especially in urban homes.It's great for container gardening.`,
+        embedId: "OnUlRx3wKaQ",
+        creator: "Garden Up",
+        category: "Basic Gardening",
+        icon: "garden up.jpeg",
+        thumbnail: "hq720 (1).webp",
+        views: "205K",
+        uploadedOn: "2 years",
+        duration: "2:23"
+    },
+    {
+        _id: 's1u1l3-zifmi7-32ouu2q1',
+        title: "MY TOP 50 GARDENING IDEAS & HACKS FOR BEGINNERS AND EXPERTS | GARDEN SECRETS",
+        description: `These are my top 50 garden ideas, garden hacks, garden secrets, tips and tricks that will blow away your mind. After the success of my 101 gardening hacks four years ago, I present these fresh and new gardening hacks and tricks for home gardening – for beginners as well as experts in gardening hobby.
+
+            Please watch all the hacks till the end. You might find these similar to garden hacks 5-minute crafts like seed hacks, pest control hacks, tips for vegetable gardening, container gardening ideas, home gardening, terrace gardening and all such tips and hacks on growing plants.`,
+        embedId: "QaxBsqBvfNA",
+        creator: "Garden Tips",
+        category: "Basic Gardening",
+        icon: "garden hacks.jpeg",
+        thumbnail: "hq720-e45.webp",
+        views: "729K",
+        uploadedOn: "1 month",
+        duration: "12:58"
     },
 ];
