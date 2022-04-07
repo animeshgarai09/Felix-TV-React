@@ -3,11 +3,9 @@ import { AuthReducer } from "../reducers/auth-reducer"
 import axios from "axios"
 import { useToast } from "react-felix-ui"
 import { useNavigate } from "react-router-dom"
-// import { useWatchLater, useLikes, useHistory } from "@providers";
 import { useWatchLater } from "./watch-later-provider"
 import { useHistory } from "./history-provider"
 import { useLikes } from "./like-provider"
-// import { usePlaylist } from "./playlist-provider"
 import { ReactComponent as Spinner } from "@assets/svg/spinner.svg"
 const AuthContext = createContext()
 
@@ -27,7 +25,6 @@ const AuthProvider = ({ children }) => {
     const { setWatchLaterState } = useWatchLater()
     const { setLikesState } = useLikes()
     const { setHistoryState } = useHistory()
-    // const { PlaylistDispatch } = usePlaylist()
 
     const handleSignIn = (email, password, redirect, setState) => {
         axios.post("/api/auth/login", {
@@ -104,11 +101,6 @@ const AuthProvider = ({ children }) => {
         setWatchLaterState({ watchlater: user.watchlater, count: user.watchlater.length })
         setLikesState({ likes: user.likes, count: user.likes.length })
         setHistoryState({ history: user.history, count: user.history.length })
-        // // console.log(user.playlists)
-        // PlaylistDispatch({
-        //     type: "SET_PLAYLISTS",
-        //     payload: user.playlists
-        // })
     }
 
     useEffect(() => {
@@ -118,6 +110,12 @@ const AuthProvider = ({ children }) => {
                 encodedToken: token
             }).then((response) => {
                 setUserDetails(response.data, token)
+                setLoad(true)
+            }).catch((err) => {
+                AuthDispatcher({
+                    type: "REMOVE_USER"
+                })
+                navigate("/")
                 setLoad(true)
             })
         } else {

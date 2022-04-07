@@ -11,7 +11,7 @@ const Home = () => {
             </Helmet>
 
             <div className={styles.container}>
-                <h1>Home Page</h1>
+                <h1>Let's make earth greener</h1>
                 <Link to="/explore"><Button >Explore</Button></Link>
             </div>
         </>
